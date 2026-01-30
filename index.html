@@ -3,405 +3,555 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="CV & Portfolio của YOUR_NAME" />
-  <title>YOUR_NAME — CV</title>
-
+  <title>CV — Nguyễn Thanh Đạt</title>
   <style>
     :root{
-      --bg:#0b1020;
-      --card:#0f1733;
-      --muted:#93a4c7;
-      --text:#e8eefc;
-      --brand:#7aa2ff;
-      --brand2:#4ef0c5;
-      --line:rgba(255,255,255,.08);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --max: 1040px;
+      --bg:#f3f5f7;
+      --paper:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+
+      --accent:#2b6cb0;     /* xanh dương kiểu CV */
+      --accent2:#1b4f8a;
+      --side:#0f172a;       /* sidebar tối */
+      --side2:#111827;
+      --sideText:#e5e7eb;
+
+      --radius:14px;
+      --shadow:0 12px 30px rgba(0,0,0,.10);
+      --max:980px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(900px 400px at 20% 10%, rgba(122,162,255,.20), transparent 55%),
-        radial-gradient(700px 420px at 80% 0%, rgba(78,240,197,.14), transparent 50%),
-        radial-gradient(500px 380px at 70% 90%, rgba(122,162,255,.12), transparent 55%),
-        var(--bg);
+      background:var(--bg);
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height:1.55;
     }
-    a{color:inherit; text-decoration:none}
-    a:hover{opacity:.9}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
-    .topbar{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.55));
-      border-bottom:1px solid var(--line);
-    }
-    .topbar-inner{
-      max-width:var(--max); margin:0 auto; padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 4px rgba(122,162,255,.12);
-    }
-    nav{display:flex; flex-wrap:wrap; gap:10px}
-    nav a{
-      font-size:14px;
-      padding:8px 10px;
-      border:1px solid transparent;
-      border-radius:999px;
-      color:var(--muted);
-    }
-    nav a:hover{border-color:var(--line); color:var(--text)}
-    .hero{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
+
+    /* Paper */
+    .page{
+      max-width:var(--max);
+      margin:28px auto;
+      background:var(--paper);
       border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-    }
-    .headline{
-      font-size:38px; margin:6px 0 10px;
-      line-height:1.15;
-      letter-spacing:-.6px;
-    }
-    .sub{
-      color:var(--muted);
-      margin:0 0 14px;
-      font-size:16px;
-    }
-    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .pill{
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid var(--line);
-      padding:7px 10px;
-      border-radius:999px;
-      background: rgba(255,255,255,.02);
-    }
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      font-weight:600;
-      font-size:14px;
-    }
-    .btn.primary{
-      border-color: rgba(122,162,255,.35);
-      background: linear-gradient(135deg, rgba(122,162,255,.20), rgba(78,240,197,.10));
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .small{font-size:13px; color:var(--muted)}
-    .grid{
-      margin-top:16px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
+      grid-template-columns: 310px 1fr;
+      min-height: 1200px; /* gần A4 */
     }
     @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
+      .page{grid-template-columns:1fr; min-height:auto}
     }
-    h2{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
-    .section{scroll-margin-top:80px}
-    .list{display:flex; flex-direction:column; gap:10px}
-    .item{
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background: rgba(0,0,0,.12);
-    }
-    .item .top{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
-    }
-    .item .title{font-weight:700}
-    .item .meta{color:var(--muted); font-size:13px}
-    .item p{margin:8px 0 0; color:var(--muted)}
-    .skills{
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    .tag{
-      font-size:13px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-      color:var(--text);
-    }
-    footer{
-      margin-top:26px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
+
+    /* Sidebar */
+    .side{
+      background: linear-gradient(180deg, var(--side), var(--side2));
+      color:var(--sideText);
+      padding:26px 22px;
     }
     .avatar{
-      width:72px; height:72px; border-radius:18px;
-      background: linear-gradient(135deg, rgba(122,162,255,.35), rgba(78,240,197,.25));
-      border:1px solid var(--line);
-      display:grid; place-items:center;
+      width:120px; height:120px;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.18);
+      display:grid;
+      place-items:center;
       font-weight:800;
-      letter-spacing:.5px;
+      letter-spacing:.6px;
+      margin-bottom:14px;
+      overflow:hidden;
     }
-    .aside-top{display:flex; align-items:center; gap:12px}
-    .kv{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:12px}
-    .kv div{
-      padding:10px 12px;
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .name{
+      font-size:22px;
+      font-weight:800;
+      margin:8px 0 2px;
+      letter-spacing:.2px;
+    }
+    .role{
+      font-size:13px;
+      color:rgba(229,231,235,.85);
+      margin:0 0 14px;
+    }
+    .badge{
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      margin-bottom:16px;
+    }
+
+    .side h3{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin:18px 0 10px;
+      color:rgba(229,231,235,.78);
+    }
+    .info{
+      display:grid;
+      gap:10px;
+      font-size:13px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .ico{
+      width:26px; height:26px;
+      border-radius:9px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      font-size:13px;
+    }
+    .row b{display:block; font-size:12px; color:rgba(229,231,235,.78)}
+    .row span, .row a{color:rgba(229,231,235,.95); text-decoration:none}
+
+    .chips{
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:rgba(229,231,235,.95);
+    }
+
+    .bar{
+      margin:10px 0;
+      display:grid;
+      gap:8px;
+    }
+    .barline{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:rgba(229,231,235,.92);
+    }
+    .meter{
+      width:100%;
+      height:8px;
+      border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      width:70%;
+      background: linear-gradient(90deg, rgba(59,130,246,.9), rgba(16,185,129,.85));
+    }
+
+    /* Main */
+    .main{
+      padding:28px 26px;
+    }
+    .header{
+      padding-bottom:14px;
+      border-bottom:2px solid var(--line);
+      margin-bottom:18px;
+    }
+    .header .title{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .headline{
+      margin:0;
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:-.3px;
+      color:var(--accent2);
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .cta{
+      text-align:right;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .cta a{
+      display:inline-block;
+      margin-top:6px;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .section{
+      margin-top:16px;
+    }
+    .section h2{
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+      color:var(--accent2);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .section h2:after{
+      content:"";
+      height:1px;
+      background:var(--line);
+      flex:1;
+    }
+    .card{
       border:1px solid var(--line);
-      border-radius:14px;
-      background: rgba(0,0,0,.12);
+      border-radius:12px;
+      padding:12px 12px;
+      background:#fff;
     }
-    .kv b{display:block; font-size:13px}
-    .kv span{color:var(--muted); font-size:13px}
+
+    .summary{
+      color:var(--ink);
+      font-size:14px;
+    }
+    .summary ul{
+      margin:8px 0 0 18px;
+      color:var(--muted);
+    }
+
+    /* Timeline */
+    .timeline{display:grid; gap:12px}
+    .item{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 12px;
+    }
+    .item .top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .item .role{
+      margin:0;
+      color:var(--ink);
+      font-weight:800;
+      font-size:15px;
+    }
+    .item .org{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .item .time{
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+      margin-top:2px;
+    }
+    .item ul{
+      margin:10px 0 0 18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .kpi{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:10px;
+    }
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      color:var(--ink);
+    }
+
+    /* Two-column blocks inside main */
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 900px){
+      .cols{grid-template-columns:1fr}
+    }
+    .mini ul{margin:8px 0 0 18px; color:var(--muted); font-size:13px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+
+    /* Print to PDF (A4) */
+    @media print{
+      body{background:#fff}
+      .page{
+        box-shadow:none;
+        margin:0;
+        border-radius:0;
+        max-width:none;
+        min-height:auto;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>YOUR_NAME</span>
-      </div>
-      <nav>
-        <a href="#about">Giới thiệu</a>
-        <a href="#experience">Kinh nghiệm</a>
-        <a href="#projects">Dự án</a>
-        <a href="#skills">Kỹ năng</a>
-        <a href="#contact">Liên hệ</a>
-      </nav>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <section class="hero">
-      <div class="card">
-        <div class="small">👋 Xin chào, mình là</div>
-        <h1 class="headline">YOUR_NAME</h1>
-        <p class="sub">
-          YOUR_TITLE — ví dụ: AI Engineer / Backend Developer / Data Scientist. <br/>
-          Mình tập trung vào: <b>YOUR_FOCUS</b> (ví dụ: RAG, Computer Vision realtime, RL, FastAPI).
-        </p>
-
-        <div class="pillrow">
-          <span class="pill">📍 YOUR_LOCATION</span>
-          <span class="pill">💼 Open to: YOUR_STATUS</span>
-          <span class="pill">🗣️ VI/EN</span>
-        </div>
-
-        <div class="cta">
-          <a class="btn primary" href="YOUR_CV_PDF_LINK" target="_blank" rel="noopener">⬇️ Tải CV (PDF)</a>
-          <a class="btn" href="YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="#contact">Email</a>
-        </div>
-
-        <div class="small" style="margin-top:12px">
-          Tip: Bạn có thể host file CV PDF ngay trong repo này, rồi link dạng <code>cv.pdf</code>.
-        </div>
+  <main class="page">
+    <!-- LEFT / SIDEBAR -->
+    <aside class="side">
+      <div class="avatar">
+        <!-- Nếu bạn có ảnh: thay bằng <img src="avatar.jpg" alt="avatar"> -->
+        NTD
       </div>
 
-      <aside class="card">
-        <div class="aside-top">
-          <div class="avatar">YN</div>
+      <div class="name">Nguyễn Thanh Đạt</div>
+      <div class="role">AI Engineer · Backend (FastAPI) · MLOps</div>
+      <div class="badge">Open to: Intern / Fresher / Junior</div>
+
+      <h3>Thông tin</h3>
+      <div class="info">
+        <div class="row">
+          <div class="ico">📞</div>
           <div>
-            <div style="font-weight:800; font-size:16px">YOUR_NAME</div>
-            <div class="small">YOUR_TITLE</div>
+            <b>Điện thoại</b>
+            <span>09xx xxx xxx</span>
           </div>
         </div>
-
-        <div class="kv">
+        <div class="row">
+          <div class="ico">✉️</div>
           <div>
-            <b>Stack chính</b>
-            <span>Python · FastAPI · PyTorch · Docker · PostgreSQL (ví dụ)</span>
-          </div>
-          <div>
-            <b>Điểm mạnh</b>
-            <span>System thinking · Shipping nhanh · Debug tốt (ví dụ)</span>
-          </div>
-          <div>
-            <b>Highlights</b>
-            <span>Top project/achievement 1 dòng (ví dụ: triển khai chatbot RAG cho ...)</span>
+            <b>Email</b>
+            <a href="mailto:you@example.com">you@example.com</a>
           </div>
         </div>
-      </aside>
-    </section>
-
-    <section id="about" class="grid">
-      <div class="card section">
-        <h2>Giới thiệu</h2>
-        <p class="sub" style="margin:0">
-          Viết 4–6 dòng về bạn: background, bạn làm gì giỏi, bạn thích giải quyết vấn đề gì,
-          mục tiêu 6–12 tháng tới là gì. <br/><br/>
-          Ví dụ: “Mình xây hệ thống AI ứng dụng (RAG/Agent, CV realtime), tối ưu pipeline inference,
-          thiết kế backend phục vụ model, triển khai production.”
-        </p>
-      </div>
-
-      <div class="card section">
-        <h2>Giáo dục / Chứng chỉ</h2>
-        <div class="list">
-          <div class="item">
-            <div class="top">
-              <div class="title">YOUR_SCHOOL — YOUR_MAJOR</div>
-              <div class="meta">YYYY–YYYY</div>
-            </div>
-            <p>GPA / Thành tích / môn nổi bật (tuỳ chọn)</p>
+        <div class="row">
+          <div class="ico">📍</div>
+          <div>
+            <b>Địa chỉ</b>
+            <span>TP.HCM, Việt Nam</span>
           </div>
-          <div class="item">
-            <div class="top">
-              <div class="title">YOUR_CERT — Provider</div>
-              <div class="meta">YYYY</div>
-            </div>
-            <p>Mô tả 1 dòng (tuỳ chọn)</p>
+        </div>
+        <div class="row">
+          <div class="ico">🐙</div>
+          <div>
+            <b>GitHub</b>
+            <a href="https://github.com/yourname" target="_blank" rel="noopener">github.com/yourname</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ico">💼</div>
+          <div>
+            <b>LinkedIn</b>
+            <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">linkedin.com/in/yourname</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="experience" class="card section" style="margin-top:16px">
-      <h2>Kinh nghiệm</h2>
-      <div class="list">
-        <div class="item">
-          <div class="top">
-            <div>
-              <div class="title">Company / Team — Role</div>
-              <div class="meta">YYYY–YYYY · Full-time / Intern / Freelance</div>
-            </div>
-            <div class="meta">📍 Remote / Onsite</div>
-          </div>
-          <p>
-            • Thành tựu 1 (đo được càng tốt) <br/>
-            • Thành tựu 2 <br/>
-            • Tech: Python, FastAPI, Redis, ... (ví dụ)
-          </p>
-        </div>
-
-        <div class="item">
-          <div class="top">
-            <div>
-              <div class="title">Company — Role</div>
-              <div class="meta">YYYY–YYYY</div>
-            </div>
-          </div>
-          <p>• 2–3 gạch đầu dòng, tập trung impact</p>
-        </div>
+      <h3>Kỹ năng chính</h3>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">Docker</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Linux</span>
+        <span class="chip">RAG</span>
+        <span class="chip">Computer Vision</span>
       </div>
-    </section>
 
-    <section id="projects" class="grid section" style="margin-top:16px">
-      <div class="card">
-        <h2>Dự án nổi bật</h2>
-        <div class="list">
-          <div class="item">
-            <div class="top">
-              <div class="title">Project A — 1 câu mô tả</div>
-              <div class="meta"><a href="YOUR_PROJECT_LINK" target="_blank" rel="noopener">Link</a></div>
-            </div>
-            <p>
-              • Bạn xây cái gì, cho ai dùng, giải quyết vấn đề gì <br/>
-              • Kết quả (latency, cost, accuracy, users, v.v.) <br/>
-              • Stack: ...
+      <h3>Ngôn ngữ</h3>
+      <div class="bar">
+        <div class="barline"><span>Tiếng Việt</span><span>Native</span></div>
+        <div class="meter"><div class="fill" style="width:95%"></div></div>
+
+        <div class="barline"><span>English</span><span>Intermediate</span></div>
+        <div class="meter"><div class="fill" style="width:65%"></div></div>
+      </div>
+
+      <h3>Sở thích</h3>
+      <div class="chips">
+        <span class="chip">Tự học</span>
+        <span class="chip">Open-source</span>
+        <span class="chip">Chess / RL</span>
+        <span class="chip">AI Systems</span>
+      </div>
+    </aside>
+
+    <!-- RIGHT / MAIN -->
+    <section class="main">
+      <header class="header">
+        <div class="title">
+          <div>
+            <h1 class="headline">Curriculum Vitae</h1>
+            <p class="subtitle">
+              Mục tiêu: Ứng tuyển vị trí <b>AI Engineer</b> / <b>Backend AI</b> — xây hệ thống AI (RAG/CV),
+              tối ưu inference, triển khai production.
             </p>
           </div>
+          <div class="cta">
+            <div>Cập nhật: 2026</div>
+            <a href="#" onclick="window.print(); return false;">In / Lưu PDF</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="section">
+        <h2>Tóm tắt</h2>
+        <div class="card summary">
+          <div>
+            AI Engineer định hướng sản phẩm: triển khai chatbot RAG, pipeline CV realtime, thiết kế backend phục vụ model.
+            Ưu tiên hệ thống chạy được thật: đo latency/cost, logging, versioning, triển khai Docker.
+          </div>
+          <ul>
+            <li>RAG: chunking, embedding, rerank, eval; tích hợp FastAPI</li>
+            <li>CV realtime: face detection / tracking; tối ưu FPS & latency</li>
+            <li>Thói quen: viết tài liệu, đo đạc, debug có hệ thống</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Kinh nghiệm</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="top">
+              <div>
+                <p class="role">AI Engineer (Freelance / Personal Projects)</p>
+                <p class="org">RAG Chatbot · CV Realtime · MLOps nhỏ</p>
+              </div>
+              <div class="time">2024 — Nay</div>
+            </div>
+            <ul>
+              <li>Xây chatbot RAG: ingestion → chunking → embeddings → retrieval → rerank → answer.</li>
+              <li>Triển khai API bằng FastAPI; Docker hóa; logging + basic monitoring.</li>
+              <li>Tối ưu inference: batching, cache, giảm độ trễ phản hồi.</li>
+            </ul>
+            <div class="kpi">
+              <span class="pill">FastAPI</span>
+              <span class="pill">PyTorch</span>
+              <span class="pill">Vector DB</span>
+              <span class="pill">Docker</span>
+            </div>
+          </div>
 
           <div class="item">
             <div class="top">
-              <div class="title">Project B — 1 câu mô tả</div>
-              <div class="meta">2025</div>
+              <div>
+                <p class="role">Intern / Thực tập (điền nếu có)</p>
+                <p class="org">Công ty/Team — mô tả ngắn</p>
+              </div>
+              <div class="time">YYYY — YYYY</div>
             </div>
-            <p>• 2–3 bullet, kèm link GitHub nếu có</p>
+            <ul>
+              <li>Thành tựu 1 (đo được càng tốt)</li>
+              <li>Thành tựu 2</li>
+              <li>Tech: ...</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div class="card">
-        <h2>Side projects / Open-source</h2>
-        <div class="list">
+      <div class="section">
+        <h2>Dự án</h2>
+        <div class="timeline">
           <div class="item">
             <div class="top">
-              <div class="title">Repo / Tool</div>
-              <div class="meta"><a href="YOUR_GITHUB_REPO" target="_blank" rel="noopener">GitHub</a></div>
+              <div>
+                <p class="role">RAG Chatbot for Documents</p>
+                <p class="org">Tìm kiếm văn bản + trả lời có trích dẫn</p>
+              </div>
+              <div class="time">2025</div>
             </div>
-            <p>• Nêu 1 điểm hay: tốc độ, thiết kế, người dùng, v.v.</p>
+            <ul>
+              <li>Thiết kế pipeline: parsing → chunking → embedding → retrieval → rerank → generation.</li>
+              <li>Thêm evaluation đơn giản: hit-rate / groundedness; tối ưu chunk size và top-k.</li>
+              <li>Triển khai demo FastAPI + UI.</li>
+            </ul>
+            <div class="kpi">
+              <span class="pill">RAG</span><span class="pill">FastAPI</span><span class="pill">Embeddings</span>
+            </div>
           </div>
+
           <div class="item">
             <div class="top">
-              <div class="title">Demo / Blog</div>
-              <div class="meta"><a href="YOUR_BLOG" target="_blank" rel="noopener">Blog</a></div>
+              <div>
+                <p class="role">Realtime Face Detection + Tracking</p>
+                <p class="org">Detect → track → ID (tuỳ chọn)</p>
+              </div>
+              <div class="time">2025</div>
             </div>
-            <p>• Nếu bạn viết bài kỹ thuật, để ở đây</p>
+            <ul>
+              <li>Dùng model detect (ví dụ SCRFD) + tracker; tối ưu FPS cho webcam.</li>
+              <li>Quản lý pipeline: resize, threshold, NMS, tracking update.</li>
+            </ul>
+            <div class="kpi">
+              <span class="pill">Computer Vision</span><span class="pill">Realtime</span><span class="pill">Optimization</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="skills" class="card section" style="margin-top:16px">
-      <h2>Kỹ năng</h2>
-      <div class="skills">
-        <span class="tag">Python</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">FastAPI</span>
-        <span class="tag">Docker</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Redis</span>
-        <span class="tag">Linux</span>
-        <span class="tag">MLOps</span>
-        <span class="tag">RAG</span>
-        <span class="tag">Computer Vision</span>
+      <div class="section">
+        <h2>Học vấn & Chứng chỉ</h2>
+        <div class="cols">
+          <div class="card mini">
+            <p style="margin:0; font-weight:800">Trường / Ngành</p>
+            <p>Đại học ... — Ngành ...</p>
+            <ul>
+              <li>GPA / thành tích (tuỳ chọn)</li>
+              <li>Môn nổi bật: ML, DL, Data, OOP...</li>
+            </ul>
+          </div>
+          <div class="card mini">
+            <p style="margin:0; font-weight:800">Chứng chỉ</p>
+            <ul>
+              <li>Coursera / Udemy: ML / DL / MLOps (điền)</li>
+              <li>IELTS / TOEIC (nếu có)</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="small" style="margin-top:10px">
-        Tip: Kỹ năng nên “tập trung” (10–15 cái) + đúng thứ bạn muốn apply.
+      <div class="section">
+        <h2>Kỹ năng</h2>
+        <div class="cols">
+          <div class="card mini">
+            <p style="margin:0; font-weight:800">Kỹ thuật</p>
+            <ul>
+              <li>Python, OOP, Data structures</li>
+              <li>FastAPI, REST, Auth, Background jobs</li>
+              <li>PyTorch, inference, quantization (tuỳ)</li>
+              <li>Docker, Linux, basic CI/CD</li>
+              <li>SQL (PostgreSQL), Redis (tuỳ)</li>
+            </ul>
+          </div>
+          <div class="card mini">
+            <p style="margin:0; font-weight:800">Kỹ năng mềm</p>
+            <ul>
+              <li>System thinking, ownership</li>
+              <li>Giao tiếp rõ ràng, viết tài liệu</li>
+              <li>Debug & tối ưu hiệu năng</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Hoạt động</h2>
+        <div class="card mini">
+          <p>Open-source / blog / cộng đồng (điền nếu có). Ví dụ: viết bài về RAG, CV realtime, RL chessbot.</p>
+        </div>
       </div>
     </section>
-
-    <section id="contact" class="card section" style="margin-top:16px">
-      <h2>Liên hệ</h2>
-      <p class="sub" style="margin:0 0 10px">
-        Bạn có thể liên hệ mình qua:
-      </p>
-      <div class="pillrow">
-        <a class="pill" href="mailto:YOUR_EMAIL">📧 YOUR_EMAIL</a>
-        <a class="pill" href="YOUR_GITHUB" target="_blank" rel="noopener">🐙 GitHub</a>
-        <a class="pill" href="YOUR_LINKEDIN" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a class="pill" href="YOUR_FACEBOOK_OR_X" target="_blank" rel="noopener">🌐 Social</a>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="y"></span> YOUR_NAME · Built with GitHub Pages
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  </main>
 </body>
 </html>
