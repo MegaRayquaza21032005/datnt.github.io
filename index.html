@@ -3,555 +3,373 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CV — Nguyễn Thanh Đạt</title>
+  <title>CV - Họ Tên</title>
   <style>
     :root{
-      --bg:#f3f5f7;
-      --paper:#ffffff;
-      --ink:#1f2937;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-
-      --accent:#2b6cb0;     /* xanh dương kiểu CV */
-      --accent2:#1b4f8a;
-      --side:#0f172a;       /* sidebar tối */
-      --side2:#111827;
-      --sideText:#e5e7eb;
-
-      --radius:14px;
-      --shadow:0 12px 30px rgba(0,0,0,.10);
-      --max:980px;
+      --ink:#111;
+      --muted:#444;
+      --line:#111;
+      --soft:#e9e9e9;
+      --paper:#fff;
+      --w: 900px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      background:var(--bg);
+      background:#f2f2f2;
       color:var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: Arial, Helvetica, sans-serif;
       line-height:1.55;
     }
-
-    /* Paper */
     .page{
-      max-width:var(--max);
-      margin:28px auto;
+      width:min(var(--w), 100%);
+      margin:24px auto;
       background:var(--paper);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      display:grid;
-      grid-template-columns: 310px 1fr;
-      min-height: 1200px; /* gần A4 */
-    }
-    @media (max-width: 900px){
-      .page{grid-template-columns:1fr; min-height:auto}
+      padding:28px 34px;
+      box-shadow:0 10px 26px rgba(0,0,0,.12);
     }
 
-    /* Sidebar */
-    .side{
-      background: linear-gradient(180deg, var(--side), var(--side2));
-      color:var(--sideText);
-      padding:26px 22px;
-    }
-    .avatar{
-      width:120px; height:120px;
-      border-radius:18px;
-      background:linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
-      border:1px solid rgba(255,255,255,.18);
+    /* TOP HEADER */
+    .top{
       display:grid;
-      place-items:center;
-      font-weight:800;
-      letter-spacing:.6px;
-      margin-bottom:14px;
-      overflow:hidden;
-    }
-    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
-    .name{
-      font-size:22px;
-      font-weight:800;
-      margin:8px 0 2px;
-      letter-spacing:.2px;
-    }
-    .role{
-      font-size:13px;
-      color:rgba(229,231,235,.85);
-      margin:0 0 14px;
-    }
-    .badge{
-      display:inline-block;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      margin-bottom:16px;
-    }
-
-    .side h3{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      margin:18px 0 10px;
-      color:rgba(229,231,235,.78);
-    }
-    .info{
-      display:grid;
-      gap:10px;
-      font-size:13px;
-    }
-    .row{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .ico{
-      width:26px; height:26px;
-      border-radius:9px;
-      background: rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-      font-size:13px;
-    }
-    .row b{display:block; font-size:12px; color:rgba(229,231,235,.78)}
-    .row span, .row a{color:rgba(229,231,235,.95); text-decoration:none}
-
-    .chips{
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    .chip{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      color:rgba(229,231,235,.95);
-    }
-
-    .bar{
-      margin:10px 0;
-      display:grid;
-      gap:8px;
-    }
-    .barline{
-      display:grid;
-      grid-template-columns: 1fr auto;
-      gap:10px;
-      align-items:center;
-      font-size:12px;
-      color:rgba(229,231,235,.92);
-    }
-    .meter{
-      width:100%;
-      height:8px;
-      border-radius:999px;
-      background: rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      overflow:hidden;
-    }
-    .fill{
-      height:100%;
-      width:70%;
-      background: linear-gradient(90deg, rgba(59,130,246,.9), rgba(16,185,129,.85));
-    }
-
-    /* Main */
-    .main{
-      padding:28px 26px;
-    }
-    .header{
+      grid-template-columns: 150px 1fr;
+      gap:22px;
+      align-items:start;
       padding-bottom:14px;
       border-bottom:2px solid var(--line);
-      margin-bottom:18px;
     }
-    .header .title{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-    }
-    .headline{
-      margin:0;
-      font-size:26px;
-      font-weight:900;
-      letter-spacing:-.3px;
-      color:var(--accent2);
-    }
-    .subtitle{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .cta{
-      text-align:right;
-      font-size:12px;
-      color:var(--muted);
-    }
-    .cta a{
-      display:inline-block;
-      margin-top:6px;
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:700;
-    }
-
-    .section{
-      margin-top:16px;
-    }
-    .section h2{
-      font-size:13px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin:0 0 10px;
-      color:var(--accent2);
+    .photo{
+      width:150px;
+      height:170px;
+      border:2px solid #d8d8d8;
+      background:#f6f6f6;
+      overflow:hidden;
       display:flex;
       align-items:center;
+      justify-content:center;
+      font-size:12px;
+      color:#777;
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .name{
+      font-size:30px;
+      font-weight:800;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .title{
+      font-size:15px;
+      font-weight:700;
+      margin:4px 0 10px;
+    }
+    .info{
+      margin-top:6px;
+      font-size:13px;
+    }
+    .info .row{
+      display:flex;
+      gap:10px;
+      margin:3px 0;
+    }
+    .info .label{
+      min-width:78px; /* “Ngày sinh”, “Giới tính”… */
+      font-weight:700;
+    }
+    .info .value{
+      color:var(--ink);
+      word-break:break-word;
+    }
+    .info a{color:inherit; text-decoration:none}
+    .info a:hover{text-decoration:underline}
+
+    /* SECTIONS */
+    .section{
+      margin-top:18px;
+    }
+    .sec-title{
+      font-size:16px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin:0 0 8px;
+    }
+    .rule{
+      height:2px;
+      background:var(--line);
+      margin:2px 0 10px;
+    }
+    .para{
+      font-size:13.5px;
+      color:var(--muted);
+      margin:0;
+    }
+
+    /* TIMELINE ROWS (left date, right content) */
+    .tl{
+      display:flex;
+      flex-direction:column;
+      gap:0;
+    }
+    .tl-item{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap:16px;
+      padding:10px 0;
+      border-bottom:1px solid #ddd;
+    }
+    .tl-item:last-child{border-bottom:none}
+    .time{
+      font-size:13px;
+      font-weight:700;
+      color:var(--ink);
+      white-space:nowrap;
+    }
+    .right h4{
+      margin:0;
+      font-size:13.5px;
+      font-weight:900;
+    }
+    .right .sub{
+      margin:3px 0 0;
+      font-size:13px;
+      font-weight:800;
+    }
+    .right .desc{
+      margin:6px 0 0;
+      font-size:13.2px;
+      color:var(--muted);
+    }
+    .bullets{
+      margin:6px 0 0 18px;
+      padding:0;
+      color:var(--muted);
+      font-size:13.2px;
+    }
+    .bullets li{margin:3px 0}
+    .bold{font-weight:900; color:var(--ink)}
+
+    /* SKILLS block (two rows like screenshot: hard/soft) */
+    .skills{
+      display:grid;
       gap:10px;
     }
-    .section h2:after{
-      content:"";
-      height:1px;
-      background:var(--line);
-      flex:1;
-    }
-    .card{
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:12px 12px;
-      background:#fff;
-    }
-
-    .summary{
-      color:var(--ink);
-      font-size:14px;
-    }
-    .summary ul{
-      margin:8px 0 0 18px;
-      color:var(--muted);
-    }
-
-    /* Timeline */
-    .timeline{display:grid; gap:12px}
-    .item{
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:12px 12px;
-    }
-    .item .top{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:flex-start;
-    }
-    .item .role{
-      margin:0;
-      color:var(--ink);
-      font-weight:800;
-      font-size:15px;
-    }
-    .item .org{
-      margin:2px 0 0;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .item .time{
-      color:var(--muted);
-      font-size:12px;
-      white-space:nowrap;
-      margin-top:2px;
-    }
-    .item ul{
-      margin:10px 0 0 18px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .kpi{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin-top:10px;
-    }
-    .pill{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#f8fafc;
-      color:var(--ink);
-    }
-
-    /* Two-column blocks inside main */
-    .cols{
+    .skill-row{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+      grid-template-columns: 140px 1fr;
+      gap:16px;
+      align-items:start;
+      padding:8px 0;
     }
-    @media (max-width: 900px){
-      .cols{grid-template-columns:1fr}
+    .skill-label{
+      font-size:13.5px;
+      font-weight:900;
     }
-    .mini ul{margin:8px 0 0 18px; color:var(--muted); font-size:13px}
-    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .skill-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13.2px;
+    }
 
-    /* Print to PDF (A4) */
+    /* PRINT */
     @media print{
       body{background:#fff}
-      .page{
-        box-shadow:none;
-        margin:0;
-        border-radius:0;
-        max-width:none;
-        min-height:auto;
-      }
+      .page{box-shadow:none; margin:0; width:auto}
+      a{color:inherit}
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <!-- LEFT / SIDEBAR -->
-    <aside class="side">
-      <div class="avatar">
-        <!-- Nếu bạn có ảnh: thay bằng <img src="avatar.jpg" alt="avatar"> -->
-        NTD
+  <div class="page">
+    <!-- HEADER -->
+    <header class="top">
+      <div class="photo">
+        <!-- Nếu có ảnh: thay bằng <img src="avatar.jpg" alt="avatar"> -->
+        ẢNH 3x4
       </div>
 
-      <div class="name">Nguyễn Thanh Đạt</div>
-      <div class="role">AI Engineer · Backend (FastAPI) · MLOps</div>
-      <div class="badge">Open to: Intern / Fresher / Junior</div>
+      <div>
+        <h1 class="name">HỌ TÊN CỦA BẠN</h1>
+        <div class="title">Vị trí ứng tuyển / Chức danh</div>
 
-      <h3>Thông tin</h3>
-      <div class="info">
-        <div class="row">
-          <div class="ico">📞</div>
-          <div>
-            <b>Điện thoại</b>
-            <span>09xx xxx xxx</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="ico">✉️</div>
-          <div>
-            <b>Email</b>
-            <a href="mailto:you@example.com">you@example.com</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="ico">📍</div>
-          <div>
-            <b>Địa chỉ</b>
-            <span>TP.HCM, Việt Nam</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="ico">🐙</div>
-          <div>
-            <b>GitHub</b>
-            <a href="https://github.com/yourname" target="_blank" rel="noopener">github.com/yourname</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="ico">💼</div>
-          <div>
-            <b>LinkedIn</b>
-            <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">linkedin.com/in/yourname</a>
-          </div>
+        <div class="info">
+          <div class="row"><div class="label">Ngày sinh:</div><div class="value">DD/MM/YYYY</div></div>
+          <div class="row"><div class="label">Giới tính:</div><div class="value">Nam/Nữ</div></div>
+          <div class="row"><div class="label">Số điện thoại:</div><div class="value">0xxxxxxxxx</div></div>
+          <div class="row"><div class="label">Email:</div><div class="value"><a href="mailto:you@mail.com">you@mail.com</a></div></div>
+          <div class="row"><div class="label">Website:</div><div class="value"><a href="https://your-site.com" target="_blank" rel="noopener">your-site.com</a></div></div>
+          <div class="row"><div class="label">Địa chỉ:</div><div class="value">Quận/Huyện, Tỉnh/TP</div></div>
         </div>
       </div>
+    </header>
 
-      <h3>Kỹ năng chính</h3>
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">FastAPI</span>
-        <span class="chip">PyTorch</span>
-        <span class="chip">Docker</span>
-        <span class="chip">PostgreSQL</span>
-        <span class="chip">Linux</span>
-        <span class="chip">RAG</span>
-        <span class="chip">Computer Vision</span>
-      </div>
+    <!-- CAREER OBJECTIVE -->
+    <section class="section">
+      <div class="sec-title">MỤC TIÊU NGHỀ NGHIỆP</div>
+      <div class="rule"></div>
+      <p class="para">
+        (Nội dung mục tiêu nghề nghiệp — bạn tự chỉnh) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Viết 4–6 câu, nêu kinh nghiệm nổi bật, thế mạnh, KPI/impact, mục tiêu 1–2 năm tới.
+      </p>
+    </section>
 
-      <h3>Ngôn ngữ</h3>
-      <div class="bar">
-        <div class="barline"><span>Tiếng Việt</span><span>Native</span></div>
-        <div class="meter"><div class="fill" style="width:95%"></div></div>
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="sec-title">HỌC VẤN</div>
+      <div class="rule"></div>
 
-        <div class="barline"><span>English</span><span>Intermediate</span></div>
-        <div class="meter"><div class="fill" style="width:65%"></div></div>
-      </div>
-
-      <h3>Sở thích</h3>
-      <div class="chips">
-        <span class="chip">Tự học</span>
-        <span class="chip">Open-source</span>
-        <span class="chip">Chess / RL</span>
-        <span class="chip">AI Systems</span>
-      </div>
-    </aside>
-
-    <!-- RIGHT / MAIN -->
-    <section class="main">
-      <header class="header">
-        <div class="title">
-          <div>
-            <h1 class="headline">Curriculum Vitae</h1>
-            <p class="subtitle">
-              Mục tiêu: Ứng tuyển vị trí <b>AI Engineer</b> / <b>Backend AI</b> — xây hệ thống AI (RAG/CV),
-              tối ưu inference, triển khai production.
-            </p>
-          </div>
-          <div class="cta">
-            <div>Cập nhật: 2026</div>
-            <a href="#" onclick="window.print(); return false;">In / Lưu PDF</a>
-          </div>
-        </div>
-      </header>
-
-      <div class="section">
-        <h2>Tóm tắt</h2>
-        <div class="card summary">
-          <div>
-            AI Engineer định hướng sản phẩm: triển khai chatbot RAG, pipeline CV realtime, thiết kế backend phục vụ model.
-            Ưu tiên hệ thống chạy được thật: đo latency/cost, logging, versioning, triển khai Docker.
-          </div>
-          <ul>
-            <li>RAG: chunking, embedding, rerank, eval; tích hợp FastAPI</li>
-            <li>CV realtime: face detection / tracking; tối ưu FPS & latency</li>
-            <li>Thói quen: viết tài liệu, đo đạc, debug có hệ thống</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Kinh nghiệm</h2>
-        <div class="timeline">
-          <div class="item">
-            <div class="top">
-              <div>
-                <p class="role">AI Engineer (Freelance / Personal Projects)</p>
-                <p class="org">RAG Chatbot · CV Realtime · MLOps nhỏ</p>
-              </div>
-              <div class="time">2024 — Nay</div>
-            </div>
-            <ul>
-              <li>Xây chatbot RAG: ingestion → chunking → embeddings → retrieval → rerank → answer.</li>
-              <li>Triển khai API bằng FastAPI; Docker hóa; logging + basic monitoring.</li>
-              <li>Tối ưu inference: batching, cache, giảm độ trễ phản hồi.</li>
-            </ul>
-            <div class="kpi">
-              <span class="pill">FastAPI</span>
-              <span class="pill">PyTorch</span>
-              <span class="pill">Vector DB</span>
-              <span class="pill">Docker</span>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="top">
-              <div>
-                <p class="role">Intern / Thực tập (điền nếu có)</p>
-                <p class="org">Công ty/Team — mô tả ngắn</p>
-              </div>
-              <div class="time">YYYY — YYYY</div>
-            </div>
-            <ul>
-              <li>Thành tựu 1 (đo được càng tốt)</li>
-              <li>Thành tựu 2</li>
-              <li>Tech: ...</li>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="time">2016 - 2020</div>
+          <div class="right">
+            <h4>Tên trường / Cơ sở đào tạo</h4>
+            <div class="sub">Chuyên ngành: …</div>
+            <ul class="bullets">
+              <li>Xếp loại: … — GPA: …</li>
+              <li>Môn học liên quan: …</li>
+              <li><span class="bold">Thành tích nổi bật:</span></li>
+              <li>• Thành tích 1</li>
+              <li>• Thành tích 2</li>
             </ul>
           </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Dự án</h2>
-        <div class="timeline">
-          <div class="item">
-            <div class="top">
-              <div>
-                <p class="role">RAG Chatbot for Documents</p>
-                <p class="org">Tìm kiếm văn bản + trả lời có trích dẫn</p>
-              </div>
-              <div class="time">2025</div>
-            </div>
-            <ul>
-              <li>Thiết kế pipeline: parsing → chunking → embedding → retrieval → rerank → generation.</li>
-              <li>Thêm evaluation đơn giản: hit-rate / groundedness; tối ưu chunk size và top-k.</li>
-              <li>Triển khai demo FastAPI + UI.</li>
-            </ul>
-            <div class="kpi">
-              <span class="pill">RAG</span><span class="pill">FastAPI</span><span class="pill">Embeddings</span>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="top">
-              <div>
-                <p class="role">Realtime Face Detection + Tracking</p>
-                <p class="org">Detect → track → ID (tuỳ chọn)</p>
-              </div>
-              <div class="time">2025</div>
-            </div>
-            <ul>
-              <li>Dùng model detect (ví dụ SCRFD) + tracker; tối ưu FPS cho webcam.</li>
-              <li>Quản lý pipeline: resize, threshold, NMS, tracking update.</li>
-            </ul>
-            <div class="kpi">
-              <span class="pill">Computer Vision</span><span class="pill">Realtime</span><span class="pill">Optimization</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Học vấn & Chứng chỉ</h2>
-        <div class="cols">
-          <div class="card mini">
-            <p style="margin:0; font-weight:800">Trường / Ngành</p>
-            <p>Đại học ... — Ngành ...</p>
-            <ul>
-              <li>GPA / thành tích (tuỳ chọn)</li>
-              <li>Môn nổi bật: ML, DL, Data, OOP...</li>
-            </ul>
-          </div>
-          <div class="card mini">
-            <p style="margin:0; font-weight:800">Chứng chỉ</p>
-            <ul>
-              <li>Coursera / Udemy: ML / DL / MLOps (điền)</li>
-              <li>IELTS / TOEIC (nếu có)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Kỹ năng</h2>
-        <div class="cols">
-          <div class="card mini">
-            <p style="margin:0; font-weight:800">Kỹ thuật</p>
-            <ul>
-              <li>Python, OOP, Data structures</li>
-              <li>FastAPI, REST, Auth, Background jobs</li>
-              <li>PyTorch, inference, quantization (tuỳ)</li>
-              <li>Docker, Linux, basic CI/CD</li>
-              <li>SQL (PostgreSQL), Redis (tuỳ)</li>
-            </ul>
-          </div>
-          <div class="card mini">
-            <p style="margin:0; font-weight:800">Kỹ năng mềm</p>
-            <ul>
-              <li>System thinking, ownership</li>
-              <li>Giao tiếp rõ ràng, viết tài liệu</li>
-              <li>Debug & tối ưu hiệu năng</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Hoạt động</h2>
-        <div class="card mini">
-          <p>Open-source / blog / cộng đồng (điền nếu có). Ví dụ: viết bài về RAG, CV realtime, RL chessbot.</p>
         </div>
       </div>
     </section>
-  </main>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="sec-title">KINH NGHIỆM LÀM VIỆC</div>
+      <div class="rule"></div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="time">03/2022 - 02/2025</div>
+          <div class="right">
+            <h4>Công ty …</h4>
+            <div class="sub">Chức danh / Vai trò</div>
+            <ul class="bullets">
+              <li>• Gạch đầu dòng mô tả công việc 1</li>
+              <li>• Gạch đầu dòng mô tả công việc 2</li>
+              <li>• Gạch đầu dòng mô tả công việc 3</li>
+              <li>• Gạch đầu dòng mô tả công việc 4</li>
+            </ul>
+            <div class="desc"><span class="bold">Thành tích nổi bật:</span></div>
+            <ul class="bullets">
+              <li>• KPI/Impact 1</li>
+              <li>• KPI/Impact 2</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="time">06/2020 - 02/2022</div>
+          <div class="right">
+            <h4>Công ty …</h4>
+            <div class="sub">Chức danh / Vai trò</div>
+            <ul class="bullets">
+              <li>• Gạch đầu dòng mô tả công việc 1</li>
+              <li>• Gạch đầu dòng mô tả công việc 2</li>
+              <li>• Gạch đầu dòng mô tả công việc 3</li>
+            </ul>
+            <div class="desc"><span class="bold">Thành tích nổi bật:</span></div>
+            <ul class="bullets">
+              <li>• Thành tích 1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section">
+      <div class="sec-title">HOẠT ĐỘNG</div>
+      <div class="rule"></div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="time">08/2016 - 08/2018</div>
+          <div class="right">
+            <h4>Tên CLB / Tổ chức</h4>
+            <div class="sub">Vai trò</div>
+            <ul class="bullets">
+              <li>• Hoạt động/đóng góp 1</li>
+              <li>• Hoạt động/đóng góp 2</li>
+              <li>• Hoạt động/đóng góp 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section">
+      <div class="sec-title">CHỨNG CHỈ</div>
+      <div class="rule"></div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="time">2024</div>
+          <div class="right">
+            <h4>Tên chứng chỉ — Đơn vị cấp</h4>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="time">2023</div>
+          <div class="right">
+            <h4>Tên chứng chỉ — Đơn vị cấp</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section">
+      <div class="sec-title">DANH HIỆU VÀ GIẢI THƯỞNG</div>
+      <div class="rule"></div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="time">2024</div>
+          <div class="right">
+            <h4>Tên giải thưởng / danh hiệu</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="sec-title">KỸ NĂNG</div>
+      <div class="rule"></div>
+
+      <div class="skills">
+        <div class="skill-row">
+          <div class="skill-label">Kỹ năng cứng</div>
+          <ul class="skill-list">
+            <li>Kỹ năng 1</li>
+            <li>Kỹ năng 2</li>
+            <li>Kỹ năng 3</li>
+            <li>Kỹ năng 4</li>
+          </ul>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-label">Kỹ năng mềm</div>
+          <ul class="skill-list">
+            <li>Kỹ năng 1</li>
+            <li>Kỹ năng 2</li>
+            <li>Kỹ năng 3</li>
+            <li>Kỹ năng 4</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </body>
 </html>
